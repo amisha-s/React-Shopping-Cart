@@ -7,23 +7,42 @@ import ProductDetails from "./pages/ProductDetails";
 import Footer from "./components/Footer";
 // import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProductList />,
+    element:<div>
+      <Navbar/>
+        <ProductList />
+        <Footer/>
+    </div> 
+  
   },
   {
     path:'/product/:id',
-    element:<ProductDetails/>
+    element:<div>
+      <Navbar/>
+      <ProductDetails/>
+      <Footer/>
+    </div>
+    
   },
   {
     path:'/cart',
-    element:<Cart/>
+    element:<div>
+      <Navbar/>
+      <Cart/>
+      <Footer/>
+    </div>
   },
   {
     path:'/checkout',
-    element:<Chekout/>
+    element:<div>
+      <Navbar/>
+      <Checkout/>
+      <Footer/>
+    </div>
   }
 
 ]);
@@ -32,9 +51,7 @@ const App = () => {
   return (
     <>
       <div className="min-h-screen bg-gray-950">
-        <Navbar />
         <RouterProvider router={router} />
-        <Footer/>
       </div>
     </>
   );
