@@ -34,6 +34,7 @@ const App = () => {
       <div className="min-h-screen bg-gray-950">
         <Navbar />
         <RouterProvider router={router} />
+        <Footer/>
       </div>
     </>
   );
