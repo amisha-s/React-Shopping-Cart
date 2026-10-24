@@ -2,7 +2,7 @@ import { createContext,useContext } from "react";
 import { initialProducts } from "../data/product";
 
 const cartContext=createContext();
-import React from 'react';
+
 export const CartProvider = (props) => {
     const products=initialProducts;
     return(
