@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from 'lucide-react';
 
 const ProductCard = ({ products }) => {
-  console.log(products);
+ 
   return (
     <>
       <div className="bg-gray-900  rounded-2xl shadow-xl overflow-hidden flex flex-col h-full transition duration-500 transform border-gray-800 group hover:scale-[1.03] hover:shadow-orange-900/40">
