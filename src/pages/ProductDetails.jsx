@@ -2,8 +2,10 @@ import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {initialProducts} from '../data/product'
 import { ChevronLeft , Tag ,Zap,ShoppingCart } from 'lucide-react'
+import { useCart } from '../context/CardContext'
 
 const ProductDetails = () => {
+  const {addToCart}=useCart()
   const {id}=useParams();
   const [product, setProduct] = useState(undefined);
 
@@ -63,7 +65,7 @@ const ProductDetails = () => {
 
          
           <div className='mt-5 space-y-4 flex justify-center items-center flex-col'>
-               <button className="mx-5 w-full mx-auto mb-5 flex items-center justify-center gap-2 rounded-full bg-orange-600 py-3 text-white font-bold uppercase tracking-wider shadow-lg shadow-orange-600/40 transition duration-300 hover:bg-orange-500 cursor-pointer">
+               <button onClick={()=>addToCart(product)}className="mx-5 w-full mx-auto mb-5 flex items-center justify-center gap-2 rounded-full bg-orange-600 py-3 text-white font-bold uppercase tracking-wider shadow-lg shadow-orange-600/40 transition duration-300 hover:bg-orange-500 cursor-pointer">
             <ShoppingCart className="w-5 h-5" />
             <span>Add to Cart</span>
         </button>

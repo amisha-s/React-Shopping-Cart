@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from "../context/CardContext";
 
 const ProductCard = ({ products }) => {
+  const {addToCart}=useCart();
  
   return (
     <>
@@ -26,7 +28,7 @@ const ProductCard = ({ products }) => {
           <div className="flex items-center text-xs text-gray-500 mb-4">
             <span className="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full font-semibold">{products.category}</span></div>
         </div>
-        <button className="mx-5 mb-5 flex items-center justify-center gap-2 rounded-full bg-orange-600 py-3 text-white font-bold uppercase tracking-wider shadow-lg shadow-orange-600/40 transition duration-300 hover:bg-orange-500 cursor-pointer">
+        <button  onClick={() => addToCart(products)} className="mx-5 mb-5 flex items-center justify-center gap-2 rounded-full bg-orange-600 py-3 text-white font-bold uppercase tracking-wider shadow-lg shadow-orange-600/40 transition duration-300 hover:bg-orange-500 cursor-pointer">
             <ShoppingCart className="w-5 h-5" />
             <span>Add to Cart</span>
         </button>

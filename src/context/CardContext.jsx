@@ -1,4 +1,4 @@
-import { createContext,useContext, useState } from "react";
+import { createContext,useContext, useMemo, useState } from "react";
 import { initialProducts } from "../data/product";
 
 const cartContext=createContext();
@@ -41,10 +41,21 @@ export const CartProvider = (props) => {
   }
   //Remove all the items in Cart
   const clearCart=()=>setCart([]);
-   
+
+  const cartCount = useMemo(
+  () => cart.reduce((total, item) => total + item.quantity, 0),
+  [cart]
+);
+
+  const cartTotal=useMemo(
+    ()=>cart.reduce((total,item)=>total + item.price *item.quantity,0),
+    [cart]
+  );
+      console.log(cart)
     return(
          <>
-    <cartContext.Provider value={products}>{props.children}</cartContext.Provider>
+      
+    <cartContext.Provider value={{products,cart,addToCart,removeToCart,clearCart,cartCount,cartTotal}}>{props.children}</cartContext.Provider>
     </>
   )
 }

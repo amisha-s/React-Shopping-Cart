@@ -5,7 +5,7 @@ import { useCart } from "../context/CardContext";
 import ProductCard from "../components/ProductCard";
 
 const ProductList = () => {
-  const products = useCart();
+  const { products } = useCart();
   return (
     <div className="container mx-auto px-4 md:px-8 pt-8">
       <SearchFilter />
@@ -15,8 +15,8 @@ const ProductList = () => {
         Feature Gear ({products.length} Items){" "}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center items-center px-4">
-        {products.map((products, index) => (
-          <ProductCard key={index} products={products}></ProductCard>
+        {products.map((product, index) => (
+          <ProductCard key={index} products={product}></ProductCard>
         ))}
       </div>
     </div>
