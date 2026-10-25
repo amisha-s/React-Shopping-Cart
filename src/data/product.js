@@ -70,7 +70,7 @@ export const initialProducts = [
     category: "Phone",
   },
     {
-    id: 609,
+    id: 611,
     name: "Sony Alpha ILCE-7RM3A Full-Frame 42.4MP Mirrorless",
     price: 120990,
     image: "https://m.media-amazon.com/images/I/71VnF6UiESL._SL1500_.jpg",
