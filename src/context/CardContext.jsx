@@ -20,6 +20,27 @@ export const CartProvider = (props) => {
 
     })
   }
+
+  //Remove From Cart()
+  const removeToCart=(productId,removAll=false)=>{
+    setCart((prevCart)=>{
+      const existingProduct=prevCart.find((data)=>data.id===productId);
+
+      if(!existingProduct) return prevCart;
+
+      if(removeAll || existingProduct.id==1){
+        return prevCart.filter((item)=>item.id !==products.id);
+      }
+      else{
+        return prevCart.map(item=>item.id=productId ? {...item , quantity : item.quantity-1}:item);
+      }
+
+    })
+
+
+  }
+  //Remove all the items in Cart
+  const clearCart=()=>setCart([]);
    
     return(
          <>
